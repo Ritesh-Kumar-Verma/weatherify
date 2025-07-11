@@ -1,0 +1,47 @@
+.weather-card {
+  border-radius: 5px;
+  height: 250px;
+  width: 320px;
+  background-image: url("../../assets/background.jpg");
+  background-position: center;
+  background-size: cover;
+  
+}
+.top-half{
+    display: flex;
+    height: 33%;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.card-left{
+    display: flex;
+}
+.card-right{
+color: white;
+font-size: 25px;
+}
+
+.icon{
+}
+.temp{
+    font-size: 38px;
+    color: white;
+}
+.icon img{
+    height: 50px;
+}
+
+.card-mid{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.bottom-half{
+    height: 37%;
+    display: flex;
+    align-items: center;
+    color: rgb(255, 255, 255);
+}
