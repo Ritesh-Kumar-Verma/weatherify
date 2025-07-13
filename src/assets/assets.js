@@ -7,6 +7,8 @@ import search from './search.png'
 import snow from './snow.png'
 import wind from './wind.png'
 import background from './background.jpg'
+import deleteIcon from './delete.svg'
+
 export const assets = {
     background,
     clear,
@@ -16,5 +18,6 @@ export const assets = {
     rain,
     search,
     snow,
-    wind
+    wind,
+    deleteIcon
 }

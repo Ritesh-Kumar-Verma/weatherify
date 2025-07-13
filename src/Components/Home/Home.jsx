@@ -1,31 +1,62 @@
-import React from 'react'
-import './Home.css'
-import Card from '../Card/Card'
-const Home = ({addCityRef , cityList}) => {
+import React, { useEffect } from "react";
+import "./Home.css";
+import Card from "../Card/Card";
+import Info from "../Info/Info";
+import { useState } from "react";
 
-  const city = "Varanasi"
-  const wind_speed = 3.28
-  const temp = 214
+const Home = ({
+  addCityRef,
+  cityList,
+  setCityList,
+  temp,
+  weatherDetail,
+  setWeatherDetail,
+}) => {
+  const [currentSelectedCity, setCurrentSelectedCity] = useState(null);
 
-  const search = ()=>{
+  const search = () => {
     addCityRef.current.focus();
-  }
+  };
+
+  useEffect(() => {
+    if (!currentSelectedCity && Object.keys(weatherDetail).length > 0) {
+      setCurrentSelectedCity(Object.keys(weatherDetail)[0]);
+    }
+    if (!Object.keys(weatherDetail).includes(currentSelectedCity)) {
+      setCurrentSelectedCity(Object.keys(weatherDetail)[0]);
+    }
+  }, [weatherDetail, currentSelectedCity]);
 
   return (
-    <div className='home'>
-      <div className='card'>
-        
-        <Card temp={temp} city={city} wind_speed={wind_speed}/>
-        <div className='add-more-city' onClick={()=>search()}>+ Add City</div>
-      
+    <div className="home">
+      <div className="card">
+        {cityList.map((cityName, index) => {
+          return (
+            <Card
+              key={index}
+              index={index}
+              city={cityName}
+              setCityList={setCityList}
+              weatherDetail={weatherDetail}
+              setWeatherDetail={setWeatherDetail}
+              cityList={cityList}
+              onClick={() => setCurrentSelectedCity(cityName)}
+            />
+          );
+        })}
+
+        <div className="add-more-city" onClick={() => search()}>
+          + Add City
+        </div>
       </div>
 
-      <div className='info'>
-        dsa
-        
-        </div>
+      <div className="info">
+        {currentSelectedCity && weatherDetail[currentSelectedCity] && (
+          <Info report={weatherDetail[currentSelectedCity]} />
+        )}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

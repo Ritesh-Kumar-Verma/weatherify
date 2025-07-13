@@ -2,18 +2,29 @@ import React from 'react'
 import './Header.css'
 import {assets} from '../../assets/assets'
 
-const Header = ({addCityRef , cityList, addCity}) => {
+const Header = ({addCityRef , cityList, addCity, searchURL,weatherDetail, setWeatherDetail}) => {
 
-  const handleKeyDown=(e)=>{
-    if(e.key === 'Enter'){
-      const cityName = addCityRef.current.value.trim().toLowerCase();
-      if(cityName !== ''){
-        addCity(cityName)
-        addCityRef.current.value = ''
-      }
+  const handleAddCity = async () => {
+  const cityName = addCityRef.current.value.trim().toLowerCase()
+  if (cityName !== '') {
+    const data = await searchURL(cityName)
+    if (data && data.cod === 200) {
+      const newWeatherDetail = { ...weatherDetail, [cityName]: data };
+      setWeatherDetail(newWeatherDetail)
+      addCity(cityName)
+      addCityRef.current.value = ''
+    } else {
+      alert(data?.message || "Invalid city name")
     }
   }
+};
 
+
+  const handleKeyDown = (e)=>{
+    if(e.key == 'Enter'){
+      handleAddCity()
+    }
+  } 
 
 
   return (
@@ -21,7 +32,7 @@ const Header = ({addCityRef , cityList, addCity}) => {
         <div className="logo">Weatherify</div>
         <div className='search'> 
             <input ref={addCityRef} type="text" onKeyDown={handleKeyDown}/>
-            <img src={assets.search} alt=""/>
+            <img src={assets.search} alt="" onClick={handleAddCity}/>
         </div>
     </div>
   )

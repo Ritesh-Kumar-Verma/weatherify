@@ -2,35 +2,61 @@
   border-radius: 5px;
   height: 250px;
   width: 320px;
-  background-image: url("../../assets/background.jpg");
+  border: 2px solid rgb(20, 20, 20);
+    box-shadow: 3px 3px 10px rgb(20, 20, 20) ;
+
+  backdrop-filter: blur(2px);
   background-position: center;
   background-size: cover;
-  
+  flex-shrink: 0;         
+  width: 320px;           
+  height: 250px;
+  padding-left: 10px;
+  padding-right: 10px
+
+}
+.weather-card:hover{
+    cursor: pointer;
+}
+.close-btn{
+    width: 100%;
+    position:relative;
+}
+.close-btn img{
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    right:5px;
+}
+.close-btn img:hover{
+    box-shadow: 0 0 5px red;
 }
 .top-half{
     display: flex;
-    height: 33%;
+    height: fit-content;
     align-items: center;
     justify-content: space-between;
-    padding-left: 5px;
-    padding-right: 5px;
+    margin-top: 25px;
 }
 .card-left{
     display: flex;
 }
 .card-right{
 color: white;
-font-size: 25px;
+font-size: 30px;
 }
 
-.icon{
-}
+
 .temp{
     font-size: 38px;
     color: white;
+    display: flex;
+    align-items: center;
 }
 .icon img{
-    height: 50px;
+    display: flex;
+    align-items: center;
+    height: 55px;
 }
 
 .card-mid{
@@ -42,6 +68,7 @@ font-size: 25px;
 .bottom-half{
     height: 37%;
     display: flex;
+    
     align-items: center;
     color: rgb(255, 255, 255);
 }
