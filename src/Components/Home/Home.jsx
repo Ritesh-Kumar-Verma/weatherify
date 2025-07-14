@@ -40,6 +40,7 @@ const Home = ({
               weatherDetail={weatherDetail}
               setWeatherDetail={setWeatherDetail}
               cityList={cityList}
+               isSelected={currentSelectedCity === cityName}
               onClick={() => setCurrentSelectedCity(cityName)}
             />
           );

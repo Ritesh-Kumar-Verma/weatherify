@@ -2,7 +2,7 @@ import React from "react";
 import "./Card.css";
 import { assets } from "../../assets/assets";
 
-const Card = ({index, city, setCityList, weatherDetail,setWeatherDetail, cityList, onClick }) => {
+const Card = ({index, city, setCityList, weatherDetail,setWeatherDetail, cityList,isSelected, onClick }) => {
   if(!weatherDetail[city] || !weatherDetail[city].main){
     return null
   }
@@ -29,7 +29,7 @@ const Card = ({index, city, setCityList, weatherDetail,setWeatherDetail, cityLis
   const capitalizedSummary = summary.charAt(0).toUpperCase() + summary.slice(1)
 
   return (
-    <div className="weather-card" onClick={onClick}>
+   <div className={`weather-card ${isSelected ? "selected" : ""}`} onClick={onClick}>
       <div className="close-btn"><img src={assets.deleteIcon} alt="" onClick={(e)=>{ e.stopPropagation();removeCity(index,setCityList)}} /></div>
       <div className="top-half">
         <div className="card-left">
