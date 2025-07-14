@@ -21,7 +21,7 @@ const App = () => {
  const [cityList , setCityList] = useState([])
  const [weatherDetail , setWeatherDetail] = useState({})
 
- 
+
 
   const addCity = (cityName)=>{
     if(!cityList.includes(cityName)){

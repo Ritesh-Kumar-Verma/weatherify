@@ -5,6 +5,11 @@
 
   gap: 10px;
 }
+@media(max-width:550px){
+  .info-window{
+    flex-direction: column;
+  }
+}
 
 .overall-info {
   padding: 10px;

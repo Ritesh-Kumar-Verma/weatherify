@@ -7,7 +7,7 @@ const Card = ({index, city, setCityList, weatherDetail,setWeatherDetail, cityLis
     return null
   }
   const temp =   Math.round(weatherDetail[city].main.temp);
-  const windSpeed = weatherDetail[city].wind.speed
+  const windSpeed = (weatherDetail[city].wind.speed)*18/5
   const icon = weatherDetail[city].weather[0].icon
 
   const removeCity = (index)=>{
@@ -19,8 +19,6 @@ const Card = ({index, city, setCityList, weatherDetail,setWeatherDetail, cityLis
     })
 
     setCityList(prev=>prev.filter((_, currentIndex)=>currentIndex !== index))
-
-    
     
   }
 
@@ -45,7 +43,7 @@ const Card = ({index, city, setCityList, weatherDetail,setWeatherDetail, cityLis
 
         <div className="card-mid">
             <img src={assets.wind} alt="" />
-            {windSpeed} m/s
+            {windSpeed} KM/H
         </div>
 
       <div className="bottom-half">

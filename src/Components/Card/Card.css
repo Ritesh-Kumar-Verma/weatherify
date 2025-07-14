@@ -1,7 +1,7 @@
 .weather-card {
   border-radius: 5px;
   height: 250px;
-  width: 320px;
+  width: fit-content;
   border: 2px solid rgb(20, 20, 20);
     box-shadow: 3px 3px 10px rgb(20, 20, 20) ;
 
@@ -15,6 +15,11 @@
   padding-right: 10px
 
 }
+/* @media(max-width:550px){
+    .weather-card{
+        width: 90%;
+    }
+} */
 .weather-card:hover{
     cursor: pointer;
 }

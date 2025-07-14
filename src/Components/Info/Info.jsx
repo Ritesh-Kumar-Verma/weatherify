@@ -8,7 +8,7 @@ const Info = ({report}) => {
     return null
   }
   const overallInfo = Object.entries(report.main)
-  const overallInfoLabel = ["Temperature", "Feels Like", "Min Temp" , "Max Temp", "Pressure(hPa)", "Humidity%", "Sea Level(hPa)", "Ground Level(hPa)"]
+  const overallInfoLabel = ["Temperature(°C)", "Feels Like", "Min Temp(°C)" , "Max Temp(°C)", "Pressure(hPa)", "Humidity%", "Sea Level(hPa)", "Ground Level(hPa)"]
 
   const moreInfo = []
   const moreInfoLabel = ["Sunrise", "Sunset", "Report_calculation_Time"]
